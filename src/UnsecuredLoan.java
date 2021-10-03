@@ -1,9 +1,12 @@
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
+
+import org.apache.log4j.Logger;
 public class UnsecuredLoan {
 
 	public static void main(String[] args) {
+		Logger logger = Logger.getLogger(UnsecuredLoan.class.getName());
 		String bank;
 		int loanTerm, borrowingLimit;
 		float interestedRate, income;
@@ -32,16 +35,16 @@ public class UnsecuredLoan {
 		float aYearInterestedMoney = (totalBorrow * interestedRate) / 100;
 		float aMonthInterestedMoney = aYearInterestedMoney / 12;
 		float monthlyPayment = totalBorrow / monthsPay + aMonthInterestedMoney;
-		System.out.println("-----------------------------------------");
-		System.out.println("-----------------------------------------");
-		System.out.println("Ngân hàng " + bank.toUpperCase());
-		System.out.println("Lãi suất 1 năm: " + interestedRate + "%");
-		System.out.println("Tiền vay được: " + numFormat.format(totalBorrow));
-		System.out.println("Trả trong: " + monthsPay + " tháng");
-		System.out.println("Tiền lời 1 năm: " + numFormat.format(aYearInterestedMoney));
-		System.out.println("Tiền lời 1 tháng: " + numFormat.format(aMonthInterestedMoney));
-		System.out.println("Tiền phải trả 1 tháng: " + numFormat.format(monthlyPayment));
-		System.out.println("Tiền còn lại mỗi tháng: " + numFormat.format(income - monthlyPayment));
+		logger.info("-----------------------------------------");
+		logger.info("-----------------------------------------");
+		logger.info("Ngân hàng " + bank.toUpperCase());
+		logger.info("Lãi suất 1 năm: " + interestedRate + "%");
+		logger.info("Tiền vay được: " + numFormat.format(totalBorrow));
+		logger.info("Trả trong: " + monthsPay + " tháng");
+		logger.info("Tiền lời 1 năm: " + numFormat.format(aYearInterestedMoney));
+		logger.info("Tiền lời 1 tháng: " + numFormat.format(aMonthInterestedMoney));
+		logger.info("Tiền phải trả 1 tháng: " + numFormat.format(monthlyPayment));
+		logger.info("Tiền còn lại mỗi tháng: " + numFormat.format(income - monthlyPayment));
 	}
 
 }
