@@ -1,4 +1,36 @@
-[03-Oct-2021 20:21:19.941],[INFO ],[PropertyFile.PropertyFile],Username: Jenny
-[03-Oct-2021 20:21:19.943],[INFO ],[PropertyFile.PropertyFile],Password: Huynh
-[03-Oct-2021 20:21:19.943],[INFO ],[PropertyFile.PropertyFile],URL: https://localhost:8080
-[03-Oct-2021 20:21:19.943],[INFO ],[PropertyFile.PropertyFile],Set Username: Jenny
+[04-Oct-2021 20:19:54.278],[DEBUG],[Random],        Returned Random Alpha String: Q1MFP
+[04-Oct-2021 20:19:54.281],[DEBUG],[Random],        Returned Random Alpha String: 1GD6M
+[04-Oct-2021 20:19:54.282],[DEBUG],[Random],        Returned Random Alpha String: IJK2J
+[04-Oct-2021 20:19:54.282],[DEBUG],[Random],        Returned Random Alpha String: MS2NK
+[04-Oct-2021 20:19:54.282],[DEBUG],[Random],        Returned Random Alpha String: 8GIH8
+[04-Oct-2021 20:19:54.282],[DEBUG],[Random],        Returned Random Alpha String: LWJGJ
+[04-Oct-2021 20:19:54.282],[DEBUG],[Random],        Returned Random Alpha String: 5OD5D
+[04-Oct-2021 20:19:54.282],[DEBUG],[Random],        Returned Random Alpha String: 1IF6D
+[04-Oct-2021 20:19:54.282],[DEBUG],[Random],        Returned Random Alpha String: VRM4N
+[04-Oct-2021 20:19:54.282],[DEBUG],[Random],        Returned Random Alpha String: AV3CF
+[04-Oct-2021 20:19:54.285],[ERROR],[Random],Ahihi
+java.lang.ArithmeticException: / by zero
+	at Random.RandomCharacter.main(RandomCharacter.java:29)
+[04-Oct-2021 20:20:21.538],[DEBUG],[Random],        Returned Random Alpha String: 1UTEQ
+[04-Oct-2021 20:20:21.542],[DEBUG],[Random],        Returned Random Alpha String: I8RB0
+[04-Oct-2021 20:20:21.542],[DEBUG],[Random],        Returned Random Alpha String: MQTUC
+[04-Oct-2021 20:20:21.542],[DEBUG],[Random],        Returned Random Alpha String: 58ORJ
+[04-Oct-2021 20:20:21.542],[DEBUG],[Random],        Returned Random Alpha String: 0DHDL
+[04-Oct-2021 20:20:21.542],[DEBUG],[Random],        Returned Random Alpha String: YOIKU
+[04-Oct-2021 20:20:21.542],[DEBUG],[Random],        Returned Random Alpha String: 140V5
+[04-Oct-2021 20:20:21.542],[DEBUG],[Random],        Returned Random Alpha String: TKQIY
+[04-Oct-2021 20:20:21.543],[DEBUG],[Random],        Returned Random Alpha String: CQI8R
+[04-Oct-2021 20:20:21.543],[DEBUG],[Random],        Returned Random Alpha String: THV0Q
+[04-Oct-2021 20:20:21.544],[ERROR],[Random],Ahihi nè
+java.lang.ArithmeticException: / by zero
+	at Random.RandomCharacter.main(RandomCharacter.java:29)
+[10-Oct-2021 13:50:22.477],[INFO ],[UnsecuredLoan],-----------------------------------------
+[10-Oct-2021 13:50:22.499],[INFO ],[UnsecuredLoan],-----------------------------------------
+[10-Oct-2021 13:50:22.499],[INFO ],[UnsecuredLoan],Ngan Hang ABV
+[10-Oct-2021 13:50:22.499],[INFO ],[UnsecuredLoan],Han muc: 15 lần
+[10-Oct-2021 13:50:22.501],[INFO ],[UnsecuredLoan],Lai suat 1 nam: 12.0%
+[10-Oct-2021 13:50:22.501],[INFO ],[UnsecuredLoan],Tien vay duoc: 195.000.000 ₫
+[10-Oct-2021 13:50:22.501],[INFO ],[UnsecuredLoan],Tra trong: 36 tháng
+[10-Oct-2021 13:50:22.501],[INFO ],[UnsecuredLoan],Tien loi 1 nam: 23.400.000 ₫
+[10-Oct-2021 13:50:22.501],[INFO ],[UnsecuredLoan],Tien loi 1 thang: 1.950.000 ₫
+[10-Oct-2021 13:50:22.502],[INFO ],[UnsecuredLoan],Tien phai tra 1 thang: 7.366.666 ₫

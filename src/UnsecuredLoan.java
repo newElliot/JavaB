@@ -3,48 +3,110 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
-public class UnsecuredLoan {
+
+import Utilities.BasePage;
+public class UnsecuredLoan extends BasePage{
+	
+	private static Logger logger;
+	public UnsecuredLoan() {
+		logger = Logger.getLogger(this.getClass().getName());
+	}
 
 	public static void main(String[] args) {
-		Logger logger = Logger.getLogger(UnsecuredLoan.class.getName());
-		String bank;
-		int loanTerm, borrowingLimit;
-		float interestedRate, income;
+		UnsecuredLoan a = new UnsecuredLoan();
 		Scanner scan = new Scanner(System.in);
+		DeptInformation deptInfo = new DeptInformation();
+		DeptResult deptResult = new DeptResult();
+		
+		//Input data
+		deptInfo = a.getDeptInformation(scan);
+		
+		//Option & Process data
+		int option = 0;
+		System.out.println("1. Tính theo dư nợ cố định.");
+		System.out.println("2. Tính theo lãi suất phẳng.");
+
+		option = scan.nextInt();
+		switch (option) {
+		case 1: {
+			deptResult = a.fixedBalance(deptInfo);
+			break;
+		}
+		case 2: {
+			System.out.print("Chưa làm.");
+			break;
+		}
+		default:{
+			break;
+		}
+		}
+		
+		//Show result
+		a.showResult(deptInfo, deptResult);
+	}
+	
+	public DeptResult fixedBalance(DeptInformation deptInfo) {
+		DeptResult deptResult = new DeptResult();
+		
+		int monthsPay = deptInfo.getLoanTerm() * 12;
+		deptInfo.setMonthsPay(monthsPay);
+		float totalBorrow = deptInfo.getSalary() * deptInfo.getBorrowingLimit();
+		
+		float aYearInterestedMoney = (totalBorrow * deptInfo.getInterestedRate()) / 100;
+		float aMonthInterestedMoney = aYearInterestedMoney / 12;
+		float monthlyPayment = totalBorrow / monthsPay + aMonthInterestedMoney;
+		deptResult.setAYearInterestedMoney(aYearInterestedMoney);
+		deptResult.setAMonthInterestedMoney(aMonthInterestedMoney);
+		deptResult.setMonthlyPayment(monthlyPayment);
+		deptResult.setTotalBorrow(totalBorrow);
+		
+		return deptResult;
+	}
+	
+	public DeptResult decreasingBalance(DeptInformation deptInfo) {
+		DeptResult result = new DeptResult();
+		
+		
+		
+		return result;
+	}
+	
+	public DeptInformation getDeptInformation(Scanner scan) {
+		DeptInformation deptInfor = new DeptInformation();
+		
+		System.out.print("Vay ngân hàng: ");
+		deptInfor.setBankName(scan.nextLine());
+		
+		System.out.print("Nhập mức lương: ");
+		deptInfor.setSalary(scan.nextFloat());
+		
+		System.out.print("Nhập thời hạn vay(năm): ");
+		deptInfor.setLoanTerm(scan.nextInt());
+		
+		System.out.print("Nhập lãi suất ngân hàng(%/năm): ");
+		deptInfor.setInterestedRate(scan.nextFloat());
+		
+		System.out.print("Nhập mức vay(bao nhiêu lần lương): ");
+		deptInfor.setBorrowingLimit(scan.nextInt());
+		
+		return deptInfor;
+	}
+
+	public void showResult(DeptInformation info, DeptResult result) {
 		Locale locale = new Locale("vi", "VN");
 		NumberFormat numFormat = NumberFormat.getCurrencyInstance(locale);
 		
-		System.out.print("Vay ngân hàng: ");
-		bank = scan.nextLine();
-		
-		System.out.print("Nhập mức lương: ");
-		income = scan.nextFloat();
-		
-		System.out.print("Nhập thời hạn vay(năm): ");
-		loanTerm = scan.nextInt();
-		
-		System.out.print("Nhập lãi suất ngân hàng(%/năm): ");
-		interestedRate = scan.nextFloat();
-		
-		System.out.print("Nhập mức vay(bao nhiêu lần lương): ");
-		borrowingLimit = scan.nextInt();
-		
-		int monthsPay = loanTerm * 12;
-		float totalBorrow = income * borrowingLimit;
-		
-		float aYearInterestedMoney = (totalBorrow * interestedRate) / 100;
-		float aMonthInterestedMoney = aYearInterestedMoney / 12;
-		float monthlyPayment = totalBorrow / monthsPay + aMonthInterestedMoney;
 		logger.info("-----------------------------------------");
 		logger.info("-----------------------------------------");
-		logger.info("Ngân hàng " + bank.toUpperCase());
-		logger.info("Lãi suất 1 năm: " + interestedRate + "%");
-		logger.info("Tiền vay được: " + numFormat.format(totalBorrow));
-		logger.info("Trả trong: " + monthsPay + " tháng");
-		logger.info("Tiền lời 1 năm: " + numFormat.format(aYearInterestedMoney));
-		logger.info("Tiền lời 1 tháng: " + numFormat.format(aMonthInterestedMoney));
-		logger.info("Tiền phải trả 1 tháng: " + numFormat.format(monthlyPayment));
-		logger.info("Tiền còn lại mỗi tháng: " + numFormat.format(income - monthlyPayment));
+		logger.info("Ngan Hang " + info.getBankName().toUpperCase());
+		logger.info("Han muc: " + info.getBorrowingLimit() + " lần");
+		logger.info("Lai suat 1 nam: " + info.getInterestedRate() + "%");
+		logger.info("Tien vay duoc: " + numFormat.format(result.getTotalBorrow()));
+		logger.info("Tra trong: " + info.getMonthsPay() + " tháng");
+		logger.info("Tien loi 1 nam: " + numFormat.format(result.getAYearInterestedMoney()));
+		logger.info("Tien loi 1 thang: " + numFormat.format(result.getAMonthInterestedMoney()));
+		logger.info("Tien phai tra 1 thang: " + numFormat.format(result.getMonthlyPayment()));
 	}
-
 }
+
+

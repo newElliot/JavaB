@@ -28,7 +28,7 @@ public class RandomCharacter extends BasePage{
 		try {
 			 int data = 5 / 0;  
 		}catch(Exception e) {
-			logger.error("Ahihi", e);
+			logger.error("Ahihi nè", e);
 		}
 	}
 }
